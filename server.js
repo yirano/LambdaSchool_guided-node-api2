@@ -3,10 +3,11 @@
 
 const express = require('express')
 const server = express()
-const HubsRouter = require('./hubs/hubs-router')
+const hubsRouter = require('./hubs/hubs-router')
 
 server.use(express.json())
-server.use('./api/hubs', HubsRouter)
+server.use('/api/hubs', hubsRouter)
+server.use('/myapi/thehubs', hubsRouter)
 
 server.get('/', (req, res) => {
   res.send(`
